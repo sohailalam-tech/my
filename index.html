@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday MY WORLD</title>
+  <style>
+    /* Responsive Design */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 1.8em;
+  }
+  p, .compliment, .memory-card {
+    font-size: 1em;
+    padding: 14px;
+  }
+  button {
+    width: 80%;
+    font-size: 1em;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1, h2 {
+    font-size: 1.5em;
+  }
+  p, .compliment, .memory-card {
+    font-size: 0.95em;
+  }
+  button {
+    width: 90%;
+    font-size: 0.9em;
+    padding: 10px;
+  }
+}
+
+    body {
+      background: #0f0f14;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #ff6fb1;
+    }
+    button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #ff6fb1;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    .heart {
+      position: absolute;
+      animation: floatUp 2s linear forwards;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity:1; }
+      100% { transform: translateY(-150px); opacity:0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Meri jaan 💖</h1>
+  <p>Click below to start your surprise!</p>
+  <button id="nextBtn">Open Surprise</button>
+
+  <script>
+    const btn = document.getElementById('nextBtn');
+    btn.addEventListener('click', () => {
+      for (let i = 0; i < 20; i++) {
+        let heart = document.createElement('div');
+        heart.innerHTML = '💖';
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = Math.random() * window.innerHeight + 'px';
+        heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 2000);
+      }
+      setTimeout(() => window.location.href = 'memories.html', 1500);
+    });
+  </script>
+</body>
+</html>
